@@ -4,45 +4,68 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mini Store Checkout System</title>
-    <style>
-        body { font-family: Arial, sans-serif; background-color: #f4f4f9; padding: 20px; color: #333; }
-        .container { max-width: 600px; background: #fff; padding: 25px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); margin: auto; }
-        h1 { text-align: center; color: #2c3e50; font-size: 1.5rem; }
-        .form-group { margin-bottom: 15px; }
-        label { display: block; font-weight: bold; margin-bottom: 5px; }
-        input, select, button { width: 100%; padding: 10px; box-sizing: border-box; border: 1px solid #ccc; border-radius: 4px; font-size: 1rem; }
-        button { background-color: #3498db; color: white; border: none; cursor: pointer; font-weight: bold; margin-top: 10px; }
-        button:hover { background-color: #2980b9; }
-        #validationMessage { color: #e74c3c; font-weight: bold; margin-bottom: 15px; white-space: pre-line; }
-        #orderSummary { background: #ecf0f1; padding: 15px; border-radius: 5px; margin-top: 20px; white-space: pre-line; font-family: monospace; }
-        .product-row { background: #fafafa; padding: 10px; border: 1px solid #e1e1e1; border-radius: 4px; margin-bottom: 10px; }
-    </style>
 </head>
+
 <body>
+
     <div class="container">
-        <h1>MINI STORE CHECKOUT SYSTEM</h1>
-        <div id="validationMessage"></div>
-        <div class="form-group">
-            <label for="customerName">Customer Name</label>
-            <input type="text" id="customerName" placeholder="Enter customer name">
+
+        <div class="header">
+            <h1>MINI STORE CHECKOUT SYSTEM</h1>
+            <p>Simple and efficient order calculation system</p>
         </div>
-        <div class="form-group">
-            <label for="productCount">Number of Products</label>
-            <input type="number" id="productCount" min="1" placeholder="Enter number of products">
+
+        <div class="card">
+
+            <h2 class="section-title">Customer Information</h2>
+
+            <div class="form-group">
+                <label for="customerName">Customer Name</label>
+                <input
+                    type="text"
+                    id="customerName"
+                    placeholder="Enter customer name"
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="productCount">Number of Products</label>
+                <input
+                    type="number"
+                    id="productCount"
+                    min="1"
+                    step="1"
+                    placeholder="Enter number of products"
+                >
+            </div>
+
+            <div id="productsContainer"></div>
+
+            <div class="form-group">
+                <label for="deliveryOption">Delivery Option</label>
+
+                <select id="deliveryOption">
+                    <option value="1">Store Pickup - ₱0.00</option>
+                    <option value="2">Standard Delivery - ₱80.00</option>
+                    <option value="3">Express Delivery - ₱150.00</option>
+                </select>
+            </div>
+
+            <div id="validationMessage" class="validation"></div>
+
+            <button id="calculateBtn" class="btn">
+                Calculate Order
+            </button>
+
+            <div id="orderSummary" class="summary">
+                <p class="empty-summary">
+                    Your order summary will appear here.
+                </p>
+            </div>
+
         </div>
-        <div id="productsContainer"></div>
-        <div class="form-group">
-            <label for="deliveryOption">Delivery Option</label>
-            <select id="deliveryOption">
-                <option value="1">1 - Store Pickup (₱0)</option>
-                <option value="2">2 - Standard Delivery (₱80)</option>
-                <option value="3">3 - Express Delivery (₱150)</option>
-            </select>
-        </div>
-        <button id="calculateBtn">Calculate Order</button>
-        <h3>Order Summary</h3>
-        <div id="orderSummary">No order calculated yet.</div>
     </div>
+
     <script src="script.js"></script>
 </body>
 </html>
