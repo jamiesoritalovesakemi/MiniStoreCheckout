@@ -4,68 +4,126 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mini Store Checkout System</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f8;
+            margin: 0;
+            padding: 30px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 6px;
+        }
+
+        input,
+        select,
+        button {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        button {
+            margin-top: 20px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .product {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-top: 15px;
+            border-radius: 8px;
+            background-color: #fafafa;
+        }
+
+        .product h3 {
+            margin-top: 0;
+        }
+
+        #validationMessage {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        #orderSummary {
+            margin-top: 25px;
+            padding: 20px;
+            border-radius: 8px;
+            background-color: #f8f8f8;
+        }
+
+        .summary-line {
+            margin: 8px 0;
+        }
+
+        .total {
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
 </head>
 
 <body>
 
     <div class="container">
 
-        <div class="header">
-            <h1>MINI STORE CHECKOUT SYSTEM</h1>
-            <p>Simple and efficient order calculation system</p>
+        <h1>MINI STORE CHECKOUT SYSTEM</h1>
+
+        <div class="form-group">
+            <label for="customerName">Customer Name</label>
+            <input type="text" id="customerName" placeholder="Enter customer name">
         </div>
 
-        <div class="card">
-
-            <h2 class="section-title">Customer Information</h2>
-
-            <div class="form-group">
-                <label for="customerName">Customer Name</label>
-                <input
-                    type="text"
-                    id="customerName"
-                    placeholder="Enter customer name"
-                >
-            </div>
-
-            <div class="form-group">
-                <label for="productCount">Number of Products</label>
-                <input
-                    type="number"
-                    id="productCount"
-                    min="1"
-                    step="1"
-                    placeholder="Enter number of products"
-                >
-            </div>
-
-            <div id="productsContainer"></div>
-
-            <div class="form-group">
-                <label for="deliveryOption">Delivery Option</label>
-
-                <select id="deliveryOption">
-                    <option value="1">Store Pickup - ₱0.00</option>
-                    <option value="2">Standard Delivery - ₱80.00</option>
-                    <option value="3">Express Delivery - ₱150.00</option>
-                </select>
-            </div>
-
-            <div id="validationMessage" class="validation"></div>
-
-            <button id="calculateBtn" class="btn">
-                Calculate Order
-            </button>
-
-            <div id="orderSummary" class="summary">
-                <p class="empty-summary">
-                    Your order summary will appear here.
-                </p>
-            </div>
-
+        <div class="form-group">
+            <label for="productCount">Number of Products</label>
+            <input type="number" id="productCount" min="1" placeholder="Enter number of products">
         </div>
+
+        <div id="productsContainer"></div>
+
+        <div class="form-group">
+            <label for="deliveryOption">Delivery Option</label>
+            <select id="deliveryOption">
+                <option value="1">Store Pickup</option>
+                <option value="2">Standard Delivery</option>
+                <option value="3">Express Delivery</option>
+            </select>
+        </div>
+
+        <button type="button" id="calculateBtn">
+            Calculate Order
+        </button>
+
+        <div id="validationMessage"></div>
+
+        <div id="orderSummary"></div>
+
     </div>
 
     <script src="script.js"></script>
+
 </body>
 </html>
